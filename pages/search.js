@@ -1,8 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import tw from "tailwind-styled-components";
 import Link from "next/link";
 
 function Search() {
+ const [pickUp, setPickUp] = useState("");
+ const [dropOff, setDropOff] = useState("");
+
+ console.log(pickUp);
+ console.log(dropOff);
+
     return (
         <Wrapper>
               <Link href="/">
@@ -23,8 +29,12 @@ function Search() {
                 
                     <InputBoxes>
                           <Input 
+                          value={pickUp}
+                          onChange={(e) => setPickUp(e.target.value)}
                           placeholder="Enter pickup location" />
                           <Input 
+                          value={dropOff}
+                          onChange={(e) => setDropOff(e.target.value)}
                             placeholder="Where to"
                           />
                     </InputBoxes>
@@ -38,12 +48,18 @@ function Search() {
                  <StarIcon src="https://img.icons8.com/ios-filled/50/ffffff/star--v1.png"/>
                  saved places
              </SavedPlaces>
-
-             <ConfirmLocations>
-                <Button>
-                      Confirm Locations
-                </Button>
-             </ConfirmLocations>
+             
+             <Link href={{    // query parameters
+                 pathname: "/confirm",
+                 query: {
+                     pickup: {pickUp},
+                     dropoff: {dropOff}
+                 }
+             }}>
+             <ConfirmButtonContainer>
+                  Confirm Locations
+             </ConfirmButtonContainer>
+             </Link>
            
         </Wrapper>
     )
@@ -102,9 +118,7 @@ const PlusIcon = tw.img`
       bg-gray-400 w-10 h-10 p-2 rounded-full mr-2
    `
 
-   const ConfirmLocations = tw.div`
-       flex 
+   const ConfirmButtonContainer = tw.div`
+       bg-black text-white text-center mt-2 mx-4 p-3 text-2xl cursor-pointer
    `
-   const Button = tw.button`
-   h-12 bg-black flex flex-1 m-4 text-white text-lg font-bold justify-center items-center
-   `
+ 
