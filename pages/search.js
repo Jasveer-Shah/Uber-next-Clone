@@ -3,11 +3,12 @@ import tw from "tailwind-styled-components";
 import Link from "next/link";
 
 function Search() {
+    // for saving the data we use useState 
  const [pickUp, setPickUp] = useState("");
  const [dropOff, setDropOff] = useState("");
 
- console.log(pickUp);
- console.log(dropOff);
+//  console.log(pickUp);
+//  console.log(dropOff);
 
     return (
         <Wrapper>
@@ -52,8 +53,8 @@ function Search() {
              <Link href={{    // query parameters
                  pathname: "/confirm",
                  query: {
-                     pickup: {pickUp},
-                     dropoff: {dropOff}
+                     pickUp: pickUp,
+                     dropOff: dropOff
                  }
              }}>
              <ConfirmButtonContainer>
