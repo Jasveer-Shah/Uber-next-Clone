@@ -11,8 +11,8 @@ const confirm = () => {
     console.log("pickUp", pickUp);
     console.log("DropOff", dropOff);
 
-const  [ pickUpCoordinates, setPickupCoordinates ] = useState()
-const [dropOffCoordinates, setDropOffCoordinates] = useState()
+const  [ pickUpCoordinates, setPickupCoordinates ] = useState([0, 0])
+const [dropOffCoordinates, setDropOffCoordinates] = useState([0, 0])
 
  const getPickupCoordinates = (pickUp) => {
 
@@ -64,7 +64,10 @@ const [dropOffCoordinates, setDropOffCoordinates] = useState()
                dropOffCoordinates={dropOffCoordinates}
             />
             <RideContainer>
-                    <RideSelector/>
+                    <RideSelector 
+                               pickUpCoordinates={pickUpCoordinates}
+                               dropOffCoordinates={dropOffCoordinates}
+                    />
                     
 
                     <ConfirmButtonContainer>
@@ -101,5 +104,5 @@ const ButtonContainer = tw.div`
   h-14 w-2/12 rounded-full bg-gray-200   absolute mt-2 ml-2 z-10 
 `
 const BackButton = tw.img`
-    rounded-full h-14 bg-white
+    rounded-full h-14 bg-white  cursor-pointer shadow-md
 `
