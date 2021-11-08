@@ -31,11 +31,11 @@ export default Login
 
 
 const Wrapper = tw.div`
-    h-screen flex flex-col bg-gray-200  p-4
+    h-screen flex flex-col bg-gray-200  p-4  md:p-10  lg:pb-10
 `
 
 const SignInButton = tw.button`
- bg-black text-white text-center py-4 mt-8 w-full self-center 
+ bg-black text-white text-center font-bold text-xl tracking-widest font-mono py-4 mt-8 w-full self-center 
 `
 
 const UberLogo = tw.img`
